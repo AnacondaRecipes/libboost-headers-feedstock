@@ -35,4 +35,12 @@ about:
   summary: "Header-only Boost C++ Libraries"
   license: BSL-1.0
   license_family: Other
+  dev_url: https://www.boost.org/
+  doc_url: https://www.boost.org/doc/
 
+extra:
+  anaconda-services:
+    ref: https://anaconda.zendesk.com/agent/tickets/70829
+    reason: Dependency for chromadb
+  recipe-maintainers:
+    - ianaobi
