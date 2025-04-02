@@ -7,6 +7,7 @@ source:
   sha256: 56e156cb80a1abde8230ec04a5aef021ff69d2974c0167ca7cf98d3326eef1e8
 
 build:
+  number: 0
   noarch: generic
     # script: bash build.sh
 
@@ -24,10 +25,8 @@ test:
   files:
     - test.cpp
   commands:
-    - echo "Checking for Boost headers..."
-    - ls -l $PREFIX/include/boost
-    - test -f $PREFIX/include/boost/version.hpp
-    - g++ test.cpp -I$PREFIX/include -o test_boost_headers
+    - echo "Compiler: $CXX"
+    - $CXX test.cpp -I$PREFIX/include -o test_boost_headers
     - ./test_boost_headers
 
 about:
