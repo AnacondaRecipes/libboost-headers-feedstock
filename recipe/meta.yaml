@@ -25,7 +25,7 @@ test:
   files:
     - test.cpp
   commands:
-    - echo "Compiler: $CXX"
+   # - echo "Compiler: $CXX"
     - $CXX test.cpp -I$PREFIX/include -o test_boost_headers
     - ./test_boost_headers
 
