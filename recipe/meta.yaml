@@ -1,0 +1,38 @@
+package:
+  name: libboost-headers
+  version: "1.87.0"
+
+source:
+  url: https://files.pythonhosted.org/packages/9e/d3/924dadac7e11caafa7cfb8ac3b280ada2005897fa2d9e9e81e6f2484c337/libboost_headers-1.87.0-py3-none-any.whl
+  sha256: 56e156cb80a1abde8230ec04a5aef021ff69d2974c0167ca7cf98d3326eef1e8
+
+build:
+  noarch: generic
+    # script: bash build.sh
+
+requirements:
+  build:
+    - python
+    - pip
+    - wheel
+  run:
+    - python
+
+test:
+  requires:
+    - {{ compiler('cxx') }}
+  files:
+    - test.cpp
+  commands:
+    - echo "Checking for Boost headers..."
+    - ls -l $PREFIX/include/boost
+    - test -f $PREFIX/include/boost/version.hpp
+    - g++ test.cpp -I$PREFIX/include -o test_boost_headers
+    - ./test_boost_headers
+
+about:
+  home: https://www.boost.org/
+  summary: "Header-only Boost C++ Libraries"
+  license: BSL-1.0
+  license_family: Other
+
